@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SafetyMakers - Women's Safety Platform</title>
+    <link rel="stylesheet" href="style.css" />
+    <meta name="description" content="Women's Safety Platform" />
+    <meta name="author" content="SafetyMakers" />
+  </head>
+  <body>
+    <div class="app-wrapper">
+      <!-- Sidebar Navigation -->
+      <aside class="sidebar">
+        <div class="logo-container">
+          <h1 class="logo">SafetyMakers</h1>
+        </div>
+        <nav class="side-nav">
+          <button id="newReportBtn" class="nav-btn active">
+            <span class="icon">📝</span>
+            New Report
+          </button>
+          <button id="viewReportsBtn" class="nav-btn">
+            <span class="icon">📋</span>
+            My Reports
+          </button>
+        </nav>
+        <div class="sidebar-footer">
+          <p>Safe. Secure. Supportive.</p>
+        </div>
+      </aside>
+
+      <!-- Main Content Area -->
+      <main class="main-content">
+        <header class="content-header">
+          <h2 class="page-title" id="pageTitle">Report an Incident</h2>
+        </header>
+
+        <!-- Report Form Section -->
+        <section id="reportFormSection" class="content-section">
+          <div class="info-banner">
+            <p>All information is kept confidential. Your safety is our priority.</p>
+          </div>
+          
+          <div class="form-container">
+            <form id="incidentForm" class="incident-form">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="incidentType">Type of Incident *</label>
+                  <select id="incidentType" required>
+                    <option value="" disabled selected>Select incident type</option>
+                    <option value="harassment">Harassment</option>
+                    <option value="assault">Assault</option>
+                    <option value="stalking">Stalking</option>
+                    <option value="cyberbullying">Cyberbullying</option>
+                    <option value="threat">Threat</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                
+                <div class="form-group">
+                  <label for="incidentDate">Date of Incident *</label>
+                  <input id="incidentDate" type="date" required />
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="incidentLocation">Location *</label>
+                <input 
+                  id="incidentLocation" 
+                  placeholder="Where did this incident occur?"
+                  required 
+                />
+              </div>
+              
+              <div class="form-group">
+                <label for="incidentDescription">Description *</label>
+                <textarea 
+                  id="incidentDescription" 
+                  placeholder="Please describe what happened in as much detail as you're comfortable sharing."
+                  rows="5"
+                  required
+                ></textarea>
+              </div>
+              
+              <div class="form-group">
+                <label for="witnesses">Witnesses (if any)</label>
+                <input 
+                  id="witnesses" 
+                  placeholder="Names or contact information of any witnesses"
+                />
+              </div>
+              
+              <div class="checkbox-group">
+                <input type="checkbox" id="policeReport" />
+                <label for="policeReport">
+                  I have already filed a police report
+                </label>
+              </div>
+              
+              <button type="submit" class="btn-submit">Submit Report</button>
+            </form>
+          </div>
+        </section>
+
+        <!-- Reports Section (Hidden initially) -->
+        <section id="reportsSection" class="content-section hidden">
+          <div class="info-banner">
+            <p>Here are all your submitted reports. Track their current status below.</p>
+          </div>
+          
+          <div id="reportsContainer" class="reports-container">
+            <!-- Reports will be inserted here by JavaScript -->
+          </div>
+          
+          <div class="empty-state hidden" id="emptyState">
+            <div class="empty-state-icon">📋</div>
+            <p>You haven't submitted any reports yet.</p>
+            <button id="createFirstReportBtn" class="btn-outline">Create your first report</button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
